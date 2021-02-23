@@ -1,0 +1,31 @@
+.crd10boxContainer {
+  text-align: center;
+  box-shadow: 0px 3px 6px var(--greyShadowColor);
+  cursor: pointer;
+  border-radius: 20px;
+  width: 205px;
+  height: 155px;
+}
+
+.crd10text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+  letter-spacing: .02em;
+}
+
+.crd10boxContainer:hover {
+  transform: scale(1.1);
+  transition: 0.5s all ease 0s;
+  background-color: #f9f9f9;
+}
+
+
+.crd10title {
+  color: var(--grey);
+}
+
+.crd10title,
+.crd10value {
+  padding: 20px;
+}

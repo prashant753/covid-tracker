@@ -1,0 +1,11 @@
+.ctry10tableContainer {
+  margin-top: 40px;
+}
+.ctry10heading,
+.ctry10tableData {
+  padding: 20px;
+  text-align: center;
+}
+.ctry10tableRow {
+  cursor: pointer;
+}

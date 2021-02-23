@@ -1,0 +1,30 @@
+
+:root {
+  --textColor: #b00;
+  --blue: #00b;
+  --fullwidth: 100%;
+  --grey: grey;
+  --greyShadowColor: #00000029;
+}
+
+
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.web-align-1110 {
+  max-width: 1110px;
+  width: 100%;
+  margin: 0 auto;
+}

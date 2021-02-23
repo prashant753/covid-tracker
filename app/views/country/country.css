@@ -1,0 +1,12 @@
+.ctry10boxesContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ctry10homeHeading {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--grey);
+  text-transform: uppercase;
+}
