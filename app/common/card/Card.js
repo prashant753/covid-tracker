@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./card.css";
+import './card.css';
 
 /* This component takes props as
   title - String
@@ -8,7 +8,6 @@ import "./card.css";
 */
 
 export default function Card(props) {
-
   const { title, value } = props;
   return (
     <div className="crd10boxContainer crd10text">

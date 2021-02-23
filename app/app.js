@@ -18,19 +18,18 @@ import Navigation from './navigation';
 
 import store from './store/store';
 
-// Create redux store with history
-const MOUNT_NODE = document.getElementById('app');
-
 import './style.css';
 
+// Create redux store with history
+const MOUNT_NODE = document.getElementById('app');
 
 const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>,
-     </Provider>,
+      </BrowserRouter>
+    </Provider>,
     MOUNT_NODE,
   );
 };

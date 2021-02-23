@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 
 import './search.css';
 
 export default function SearchState(props) {
   const { onSearch } = props;
-  const [ inputValue, setInput ] = useState("");
+  const [inputValue, setInput] = useState('');
 
-  const setInputValue = (event) => {
+  const setInputValue = event => {
     setInput(event.target.value);
   };
 
@@ -22,7 +22,7 @@ export default function SearchState(props) {
 
     // This will clear the timer closure each time next set timeout opens
     return () => clearTimeout(timer);
-  }, [ inputValue, onSearch ]);
+  }, [inputValue, onSearch]);
 
   const inputRef = useRef();
   return (

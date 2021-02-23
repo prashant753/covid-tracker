@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 import Constants from '../../constant';
 
 import './table.css';
-
 
 /*
   @params
@@ -16,10 +15,9 @@ function Table(props) {
   const { navigateToState, tableData, headers } = props;
 
   const getTableDataArray = (data, key) => {
+    const arr = [];
 
-    let arr = [];
-
-    arr.push(Constants.StateName[ key ]);
+    arr.push(Constants.StateName[key]);
 
     arr.push(data.confirmed);
 
@@ -30,49 +28,36 @@ function Table(props) {
     arr.push(data.deceased);
 
     return arr;
-  }
+  };
 
+  const getHeaders = () =>
+    headers.map((header, index) => <th key={`${index} ${header}`} className="ctry10heading">{header}</th>)
+  )
 
-  const getHeaders = () => {
-    return (
-      headers.map((header, index) => {
-        return <th key={`${index} ${header}`} className="ctry10heading">{header}</th>
-      })
-    )
-  }
-
-  const getTableData = () => {
-    return (
-      Object.keys(tableData).map((key) => {
-        const onStateClick = () => navigateToState(key);
-        const dataArray = getTableDataArray(tableData[ key ].total, key);
-        return (
-          <tr onClick={onStateClick} className="ctry10tableRow" key={key}>
-            {
-              dataArray.map((value, index) => <td key={index} className="ctry10tableData">{value}</td>)
-            }
-          </tr>
-        );
-      })
-    )
-  }
+  const getTableData = () =>
+    Object.keys(tableData).map((key) => {
+      const onStateClick = () => navigateToState(key);
+      const dataArray = getTableDataArray(tableData[ key ].total, key);
+      return (
+        <tr onClick={onStateClick} className="ctry10tableRow" key={key}>
+          {
+            dataArray.map((value, index) => <td key={index} className="ctry10tableData">{value}</td>)
+          }
+        </tr>
+      );
+    })
+  )
 
   return (
     <div className="ctry10tableContainer">
       <table>
         <tbody>
-          <tr>
-            {
-              getHeaders()
-            }
-          </tr>
-          {
-            getTableData()
-          }
+          <tr>{getHeaders()}</tr>
+          {getTableData()}
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
 Table.propTypes = {

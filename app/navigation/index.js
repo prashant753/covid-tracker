@@ -10,9 +10,9 @@ export class Navigation extends React.Component {
   render() {
     return (
       <Switch>
-        <Route path={`${Router.WebRoutes.country}`} exact={true} component={Country} />
+        <Route path={`${Router.WebRoutes.country}`} exact component={Country} />
         {/* <Route path={`${WebRoutes.state}`} exact={true} component={State} /> */}
-        <Route path="*" exact={true} component={NotFound} />
+        <Route path="*" exact component={NotFound} />
       </Switch>
     );
   }

@@ -2,7 +2,7 @@ import {
   FETCH_STATES_FAILURE,
   FETCH_STATES_REQUEST,
   FETCH_STATES_SUCCESS,
-} from "./actionTypesConstant";
+} from './actionTypesConstant';
 
 const initialState = {
   isLoading: false,
@@ -11,20 +11,18 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-
   switch (action.type) {
-
     case FETCH_STATES_REQUEST:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
 
     case FETCH_STATES_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        states: action.payload
+        states: action.payload,
       };
 
     case FETCH_STATES_FAILURE:

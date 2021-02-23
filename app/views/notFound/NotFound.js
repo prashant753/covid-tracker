@@ -7,8 +7,8 @@ export default function NotFound(props) {
     <div>
       Not Found 404, please go to home page
       <button
-        onClick={() => props.history.push("/")}
-        style={{ padding: "5px", marginLeft: "10px" }}
+        onClick={() => props.history.push('/')}
+        style={{ padding: '5px', marginLeft: '10px' }}
       >
         Home Page
       </button>
