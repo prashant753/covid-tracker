@@ -37,10 +37,9 @@ function Country(props) {
       <div className="ctry10boxesContainer">
         {Object.keys(cardData).map((key, index) => (
           <div key={`${key + index}`}>
-            <Card title={key} value={cardData[key] || 'Unknown'} />
+            <Card title={key} value={cardData[ key ] || 'Unknown'} />
           </div>
         ))}
-        )}
       </div>
     );
   };

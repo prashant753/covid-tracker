@@ -17,7 +17,7 @@ function Table(props) {
   const getTableDataArray = (data, key) => {
     const arr = [];
 
-    arr.push(Constants.StateName[key]);
+    arr.push(Constants.StateName[ key ]);
 
     arr.push(data.confirmed);
 
@@ -32,7 +32,6 @@ function Table(props) {
 
   const getHeaders = () =>
     headers.map((header, index) => <th key={`${index} ${header}`} className="ctry10heading">{header}</th>)
-  )
 
   const getTableData = () =>
     Object.keys(tableData).map((key) => {
@@ -46,7 +45,6 @@ function Table(props) {
         </tr>
       );
     })
-  )
 
   return (
     <div className="ctry10tableContainer">
