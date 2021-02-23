@@ -15,8 +15,8 @@
 }
 
 .crd10boxContainer:hover {
-  transform: scale(1.1);
-  transition: 0.5s all ease 0s;
+  /* transform: scale(1.1); */
+  /* transition: 0.5s all ease 0s; */
   background-color: #f9f9f9;
 }
 

@@ -12,12 +12,12 @@ import './table.css';
 */
 
 function Table(props) {
-  const { navigateToState, tableData, headers } = props;
+  const { navigateToState, tableData, headers, isCountry } = props;
 
   const getTableDataArray = (data, key) => {
     const arr = [];
 
-    arr.push(Constants.StateName[ key ]);
+    arr.push(isCountry ? Constants.StateName[ key ] : key);
 
     arr.push(data.confirmed);
 
@@ -35,7 +35,7 @@ function Table(props) {
 
   const getTableData = () =>
     Object.keys(tableData).map((key) => {
-      const onStateClick = () => navigateToState(key);
+      const onStateClick = () => navigateToState && navigateToState(key);
       const dataArray = getTableDataArray(tableData[ key ].total, key);
       return (
         <tr onClick={onStateClick} className="ctry10tableRow" key={key}>
@@ -50,7 +50,9 @@ function Table(props) {
     <div className="ctry10tableContainer">
       <table>
         <tbody>
-          <tr>{getHeaders()}</tr>
+          <tr>
+            {getHeaders()}
+          </tr>
           {getTableData()}
         </tbody>
       </table>

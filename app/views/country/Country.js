@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Card from '../../common/card';
+import Card from '../../ui/card';
 import Table from '../../common/table/Table';
-import SearchBox from '../search';
+import SearchBox from '../../ui/search';
 
-import { getTotalData } from '../../utils/DataUtility/DataUtility';
+import { getTotalCountryData, isEmptyObject } from '../../utils/DataUtility/DataUtility';
 
 import Constants from '../../constant';
 
@@ -22,7 +22,12 @@ function Country(props) {
   const { isLoading, states, error, fetchStates } = props;
 
   useEffect(() => {
-    fetchStates();
+
+    if (isEmptyObject(states)) {
+      fetchStates();
+    }
+
+    window.scrollTo(0, 0);
   }, []);
 
   const goToStateDetails = stateCode => {
@@ -31,7 +36,8 @@ function Country(props) {
   };
 
   const getCards = () => {
-    const cardData = getTotalData(states);
+
+    const cardData = getTotalCountryData(states);
 
     return (
       <div className="ctry10boxesContainer">
@@ -44,24 +50,23 @@ function Country(props) {
     );
   };
 
-  const onSearch = useCallback(searchTerm => {
-    // Filter the country data and set
-    console.log('--Search term after 500ms', searchTerm);
-  }, []);
-
   return (
     <div className="web-align-1110">
       <div className="ctry10homeHeading">Covid Tracker</div>
-      <SearchBox onSearch={onSearch} />
       <h3 style={{ textAlign: 'center' }}>India</h3>
-      {Object.keys(states).length > 0 && getCards()}
-      {Object.keys(states).length > 0 && (
-        <Table
-          headers={Constants.UserConstants.TableHeaders(true)}
-          tableData={states}
-          navigateToState={goToStateDetails}
-        />
-      )}
+      <SearchBox stateList={states} history={props.history} />
+      {
+        !isEmptyObject(states) &&
+        <>
+          {getCards()}
+          <Table
+            headers={Constants.UserConstants.TableHeaders(true)}
+            tableData={states}
+            navigateToState={goToStateDetails}
+            isCountry={true}
+          />
+        </>
+      }
     </div>
   );
 }

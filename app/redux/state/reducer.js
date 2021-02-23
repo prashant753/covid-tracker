@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        states: [],
+        states: {},
         error: action.payload,
       };
 

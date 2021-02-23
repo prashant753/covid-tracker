@@ -1,4 +1,4 @@
-export const getTotalData = obj => {
+export const getTotalCountryData = obj => {
   let tConfirmed = 0;
 
   let tTested = 0;
@@ -8,18 +8,30 @@ export const getTotalData = obj => {
   const tDeceved = 0;
 
   for (const state in obj) {
-    tConfirmed += obj[state].total.confirmed;
+    tConfirmed += obj[ state ].total.confirmed;
 
-    tTested += obj[state].total.tested;
+    tTested += obj[ state ].total.tested;
 
-    tRecovered += obj[state].total.recovered;
+    tRecovered += obj[ state ].total.recovered;
 
     // tDeceved = tDeceved + obj[ state ].total.deceased;
   }
 
   return {
     'Total Confirmed': tConfirmed,
-    Tested: tTested,
-    Recovered: tRecovered,
+    'Tested': tTested,
+    'Recovered': tRecovered,
   };
+};
+
+export const getStateTotal = obj => {
+  return {
+    'Total Confirmed': obj.confirmed,
+    'Tested': obj.tested,
+    'Recovered': obj.recovered,
+  };
+}
+
+export const isEmptyObject = (obj) => {
+  return Object.keys(obj).length === 0
 };

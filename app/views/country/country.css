@@ -1,6 +1,7 @@
 .ctry10boxesContainer {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 13%;
 }
 
 .ctry10homeHeading {
