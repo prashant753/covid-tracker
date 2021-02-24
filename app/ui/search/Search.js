@@ -9,7 +9,7 @@ export default function SearchState(props) {
   const { stateList, history } = props;
 
   const [ inputValue, setInput ] = useState('');
-  const [ searchList, setSearchList ] = useState('');
+  const [ searchList, setSearchList ] = useState([]);
 
   const setInputValue = event => {
 
@@ -43,10 +43,6 @@ export default function SearchState(props) {
 
   const showSearchList = () => {
 
-    // if (searchList.length === 0 && inputValue) {
-    //   return <div>No results found</div>
-    // }
-
     if (searchList.length === 0) return null;
 
 
@@ -54,7 +50,10 @@ export default function SearchState(props) {
       {
         searchList.map((state, index) => {
 
-          const onStateClick = () => history.push(`/state/${state.key}`);
+          const onStateClick = () => {
+            console.log('--CLick called---')
+            history.push(`/state/${state.key}`);
+          }
           return (
             <div
               className="sea10listTitle"
@@ -67,6 +66,10 @@ export default function SearchState(props) {
         })
       }
     </div>
+  }
+
+  const onFocusOut = () => {
+    setInput('');
   }
 
   useEffect(() => {
@@ -93,6 +96,7 @@ export default function SearchState(props) {
           onChange={setInputValue}
           value={inputValue}
           placeholder="Search..."
+          onBlur={onFocusOut}
         />
         {showSearchList()}
       </div>

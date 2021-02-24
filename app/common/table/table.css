@@ -9,3 +9,7 @@
 .ctry10tableRow {
   cursor: pointer;
 }
+
+.ctry10tableRow:hover {
+  background-color: #f9f9f9;
+}

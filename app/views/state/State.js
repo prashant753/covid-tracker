@@ -5,7 +5,9 @@ import Card from '../../ui/card';
 import NotFound from '../../ui/notFound';
 import Table from '../../common/table/Table';
 
-import { getStateTotal, isEmptyObject } from '../../utils/DataUtility/DataUtility';
+import Assests from '../../assests';
+
+import { getStateTotal, isEmptyObject } from '../../utils/dataUtility/DataUtility';
 
 import Constants from '../../constant';
 
@@ -20,7 +22,7 @@ import './state.css';
 
 function State(props) {
 
-  const { isLoading, states, error, fetchStates, match: { params: code } } = props;
+  const { isLoading, states, error, fetchStates, match: { params: code }, history } = props;
 
   const stateCode = code.stateCode;
 
@@ -53,9 +55,12 @@ function State(props) {
     );
   };
 
+  const goBack = () => history.push('/')
+
   return (
     <div className="web-align-1110">
       <div className="ste10homeHeading">Covid Tracker</div>
+      <img className="ste10backArrow" src={Assests.BackArrow} onClick={goBack} />
       <h3 style={{ textAlign: 'center' }}>
         {
           !isEmptyObject(states) && Constants.StateName[ stateCode ]

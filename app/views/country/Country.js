@@ -5,9 +5,11 @@ import Card from '../../ui/card';
 import Table from '../../common/table/Table';
 import SearchBox from '../../ui/search';
 
-import { getTotalCountryData, isEmptyObject } from '../../utils/DataUtility/DataUtility';
+import { getTotalCountryData, isEmptyObject } from '../../utils/dataUtility/DataUtility';
 
 import Constants from '../../constant';
+
+import CachedData from '../../utils/storageUtility/cachedData';
 
 import {
   getIsStateLoading,
@@ -19,11 +21,12 @@ import { fetchStates } from '../../redux/state/actionCreators';
 import './country.css';
 
 function Country(props) {
+
   const { isLoading, states, error, fetchStates } = props;
 
   useEffect(() => {
 
-    if (isEmptyObject(states)) {
+    if (isEmptyObject(states) && CachedData.getStateDataFromLocalStorage() === null) {
       fetchStates();
     }
 
@@ -66,6 +69,10 @@ function Country(props) {
             isCountry={true}
           />
         </>
+      }
+      {
+        isLoading &&
+        <div>Loading...</div>
       }
     </div>
   );

@@ -10,3 +10,7 @@
   color: var(--grey);
   text-transform: uppercase;
 }
+
+.ste10backArrow {
+  cursor: pointer;
+}

@@ -1,4 +1,7 @@
+
 const isStateUndefined = state => state.state === undefined;
+
+import CachedData from '../../utils/storageUtility/cachedData';
 
 export const getIsStateLoading = state => {
   if (isStateUndefined(state) || state.state.isLoading === undefined) {
@@ -17,7 +20,7 @@ export const getStateData = state => {
     return {};
   }
 
-  return state.state.states;
+  return Object.keys(state.state.states).length === 0 ? CachedData.getStateDataFromLocalStorage() || state.state.states : state.state.states;
 };
 
 export const getStateError = state => {
